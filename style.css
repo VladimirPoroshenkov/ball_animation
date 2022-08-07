@@ -1,0 +1,143 @@
+:root {
+    --duration: 8s;
+    --sha1: 0 130px 52px 12px rgba(0, 0, 0, 0.1);
+    --sha2: 0 115px 12px 2px rgba(0, 0, 0, 0.2);
+}
+.grass {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 550px;
+    background-color: darkseagreen;
+}
+.box {
+    height: 580px;
+    width: 900px;
+    position: relative;
+    background-color: lightskyblue;
+}
+.ball {
+    background-image: url("/ball.png");
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+}
+.squash {
+    transform-origin: bottom;
+    animation:
+        squash var(--duration) linear 0s 1 normal forwards;
+}
+.move {
+    top: 0;
+    left: 50px;
+    position: absolute;
+    animation:
+        vertical var(--duration) linear 0s 1 normal backwards,
+        horizontal var(--duration) linear 0s 1 normal backwards;
+    z-index: 5;
+}
+.rotate {
+    animation: rotate var(--duration) linear 0s 1 normal forwards;
+}
+
+@keyframes squash {
+    0% {transform: scaleY(1);}
+    
+    16.53% {transform: scaleY(1);}
+    18.53% {transform: scaleY(0.6);}
+    20.53% {transform: scaleY(1);}
+    
+    44.46% {transform: scaleY(1);}
+    
+    60.62% { transform: scaleY(1);}
+    62.62% {transform: scaleY(0.6);}
+    64.62% {transform: scaleY(1);}
+    
+    75.33% {transform: scaleY(1);}
+    
+    82.23% {transform: scaleY(1);}
+    84.23% {transform: scaleY(0.6);}
+    86.23% {transform: scaleY(1);}
+    
+    90.45% {transform: scaleY(1);}
+    
+    92.81% {transform: scaleY(1); }
+    94.81% {transform: scaleY(0.6);}
+    100% {transform: scaleY(1);}
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(1080deg) }
+}
+
+@keyframes horizontal {
+    0% {left: 50px}
+    100% {left: 600px}
+}
+@keyframes vertical {
+    0% {top: 0; animation-timing-function: ease-in; }
+    
+    16.53% {top: 500px;}
+    18.53% {top: 500px;  animation-timing-function: ease-out;}
+    20.53% {top: 500px; animation-timing-function: ease-out;}
+    
+    44.46% {top: 180px;  animation-timing-function: ease-in;}
+    
+    60.62% { top: 500px;}
+    62.62% {top: 500px; animation-timing-function: ease-out ;}
+    64.62% {top: 500px; animation-timing-function: ease-out ;}
+    
+    75.33% {top: 280px;  animation-timing-function: ease-in ;}
+    
+    82.23% {top: 500px;animation-timing-function: ease-in ;}
+    84.23% {top: 500px; animation-timing-function: ease-out;}
+    86.23% {top: 500px; animation-timing-function: ease-out;}
+    
+    90.45% {top: 390px;  animation-timing-function: ease-in ;}
+    
+    92.81% {top: 500px;animation-timing-function: ease-in; }
+    94.81% {top: 500px;  animation-timing-function: ease-out;}
+    100% {top: 500px;  animation-timing-function: ease-out;}
+}
+  /* shadow */
+.shadow {
+    position: absolute;
+    background-color: transparent;
+    top: 475px;
+    left: 50px;
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
+    transform: scaleY(0.4);
+    transform-origin: bottom;
+    animation: horizontal var(--duration) linear 0s 1 normal backwards,
+    shadow var(--duration) linear 0s 1 normal forwards;
+    z-index: 5;
+}
+
+@keyframes shadow {
+    0% {box-shadow: var(--sha1);}
+    
+    16.53% {}
+    18.53% {box-shadow: var(--sha2);}
+    20.53% {}
+    
+    44.46% {box-shadow: var(--sha1);}
+    
+    60.62% {}
+    62.62% {box-shadow: var(--sha2);}
+    64.62% {}
+    
+    75.33% {box-shadow: var(--sha1);}
+    
+    82.23% {}
+    84.23% {box-shadow: var(--sha2);}
+    86.23% {}
+    
+    90.45% {box-shadow: var(--sha1);}
+    
+    92.81% {box-shadow: var(--sha1);}
+    94.81% {box-shadow: var(--sha2);}
+    100% {box-shadow: var(--sha2);}
+}
